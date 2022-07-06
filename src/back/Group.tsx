@@ -1,24 +1,15 @@
+
+import { Transaction, Transactions } from './Transaction';
 import User from './User'
 
 interface Users{
   [index: number]: User;
 }
 
-interface Transaction{
-  id: number;
-  giverId: number;
-  receiverId: number;
-  amount: number;
-}
-
 interface Debt{
   debterName: String;
   creditorName: String;
   amount: Number;
-}
-
-interface Transactions{
-  [index: number]: Transaction;
 }
 
 class Group{
