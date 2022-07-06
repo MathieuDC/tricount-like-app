@@ -2,12 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-import mainTest from '../back/main';
+import groupTest from '../back/main';
 
 function App() {
+  const group = groupTest();
+
   return (
     <div className="App">
-      <button onClick={mainTest}>Test</button>
+      Hello world !
     </div>
   );
 }

@@ -3,7 +3,7 @@ import Group from "./Group";
 
 const db = {};
 
-function mainTest ()  {
+function groupTest ()  {
   const group = new Group("OM");
 
   group.add(new User(1, "Messi", "Lionel"));
@@ -20,7 +20,7 @@ function mainTest ()  {
 
   group.computeDebt();
 
-  console.log(group.toString());
+  return group;
 };
 
-export default mainTest;
+export default groupTest;
