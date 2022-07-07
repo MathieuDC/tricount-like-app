@@ -1,5 +1,5 @@
 
-import { Transaction, Transactions } from './Transaction';
+import { Transaction, Transactions } from './Transaction.class';
 import User from './User'
 
 interface Users{

@@ -1,4 +1,4 @@
-import { Transaction, Transactions } from "../back/Transaction";
+import { Transaction, Transactions } from "../back/Transaction.class";
 
 interface TransactionListProps {
   transactions: Transactions
