@@ -5,7 +5,7 @@ interface TransactionListProps {
 }
  
 export default ({transactions}: TransactionListProps) => {
-  const transactionsItem = Object.values(transactions).map((t: Transaction) => <div>{t.giverId + " a donné " + String(t.amount)}<br/></div>)
+  const transactionsItem = Object.values(transactions).map((t: Transaction) => <div>{t.giver.name + " a donné " + String(t.amount)}<br/></div>)
   return (<>
     {transactionsItem}
   </>);

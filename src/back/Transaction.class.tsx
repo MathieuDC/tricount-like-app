@@ -1,9 +1,10 @@
 import TransactionList from "../front/TransactionList";
+import User from "./User";
 
 interface Transaction{
   id: number;
-  giverId: number;
-  receiverId: number;
+  giver: User;
+  receiver: User;
   amount: number;
 }
 

@@ -30,8 +30,8 @@ class Group{
 
   addTransaction(transaction: Transaction){
     this.transactions[transaction.id] = transaction;
-    this.users[transaction.giverId].balance -= transaction.amount;
-    this.users[transaction.receiverId].balance += transaction.amount;
+    this.users[transaction.giver.id].balance -= transaction.amount;
+    this.users[transaction.receiver.id].balance += transaction.amount;
   }
 
   getUserWithMinBalance(users: Users){
