@@ -1,5 +1,6 @@
-import User from "./User";
 import CGroup from "./Group.class";
+import User from "./User";
+
 
 const db = {};
 

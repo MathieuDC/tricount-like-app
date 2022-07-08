@@ -1,4 +1,5 @@
 
+import { type } from '@testing-library/user-event/dist/type';
 import { TransactionI, Transactions } from './Transaction.class';
 import User from './User'
 
@@ -6,7 +7,7 @@ interface Users{
   [index: number]: User;
 }
 
-interface Debt{
+interface IDebt{
   debterName: String;
   creditorName: String;
   amount: Number;
@@ -16,7 +17,7 @@ class CGroup{
   users: Users;
   transactions: Transactions;
   name: String;
-  debts: Debt[] = [];
+  debts: IDebt[] = [];
 
   constructor(name: String){
     this.users = {};
@@ -88,4 +89,6 @@ class CGroup{
   }
 }
 
+
+export type {IDebt};
 export default CGroup;
