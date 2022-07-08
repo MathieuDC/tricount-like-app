@@ -1,11 +1,12 @@
-import { Transaction, Transactions } from "../back/Transaction.class";
+import { TransactionI, Transactions } from "../back/Transaction.class";
+import Transaction from "./Transaction";
 
 interface TransactionListProps {
   transactions: Transactions
 }
  
 export default ({transactions}: TransactionListProps) => {
-  const transactionsItem = Object.values(transactions).map((t: Transaction) => <div>{t.giver.name + " a donné " + String(t.amount)}<br/></div>)
+  const transactionsItem = Object.values(transactions).map((t: TransactionI) => <Transaction transaction={t}></Transaction>)
   return (<>
     {transactionsItem}
   </>);

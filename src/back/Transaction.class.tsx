@@ -1,15 +1,16 @@
 import TransactionList from "../front/TransactionList";
 import User from "./User";
 
-interface Transaction{
+interface TransactionI{
   id: number;
+  name: string;
   giver: User;
   receiver: User;
   amount: number;
 }
 
 interface Transactions{
-  [index: number]: Transaction;
+  [index: number]: TransactionI;
 }
 
-export type {Transaction, Transactions};
+export type {TransactionI, Transactions};

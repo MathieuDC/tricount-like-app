@@ -1,5 +1,5 @@
 
-import { Transaction, Transactions } from './Transaction.class';
+import { TransactionI, Transactions } from './Transaction.class';
 import User from './User'
 
 interface Users{
@@ -28,7 +28,7 @@ class Group{
     this.users[user.id] = user;
   }
 
-  addTransaction(transaction: Transaction){
+  addTransaction(transaction: TransactionI){
     this.transactions[transaction.id] = transaction;
     this.users[transaction.giver.id].balance -= transaction.amount;
     this.users[transaction.receiver.id].balance += transaction.amount;
