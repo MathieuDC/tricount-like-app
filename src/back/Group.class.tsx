@@ -30,8 +30,8 @@ class CGroup{
 
   addTransaction(transaction: TransactionI){
     this.transactions[transaction.id] = transaction;
-    this.users[transaction.giver.id].balance -= transaction.amount;
-    this.users[transaction.receiver.id].balance += transaction.amount;
+    this.users[transaction.giver.id].balance += transaction.amount;
+    this.users[transaction.receiver.id].balance -= transaction.amount;
   }
 
   getUserWithMinBalance(users: Users){
@@ -48,6 +48,7 @@ class CGroup{
   }
 
   computeDebt(){
+    //On crée une copie profonde
     const users: Users = JSON.parse(JSON.stringify(this.users));
 
     Object.keys(users).forEach(key => {
@@ -56,16 +57,17 @@ class CGroup{
         while(user.balance > 0){
           let minBalanceId = this.getUserWithMinBalance(users);
           const minBalanceUser = users[Number(minBalanceId)];
+          //Si la dette est plus grande que le crédit
           if(Math.abs(user.balance) >= Math.abs(minBalanceUser.balance)){
             user.balance += minBalanceUser.balance;
             let amount = Math.abs(minBalanceUser.balance);
             minBalanceUser.balance = 0;
-            this.debts.push({debterName: user.firstName,creditorName: minBalanceUser.firstName, amount: amount})
+            this.debts.push({debterName: minBalanceUser.firstName,creditorName: user.firstName, amount: amount})
           } else {
             minBalanceUser.balance += user.balance;
             let amount = user.balance;
             user.balance = 0;
-            this.debts.push({debterName: user.firstName,creditorName: minBalanceUser.firstName, amount: amount})
+            this.debts.push({debterName: minBalanceUser.firstName,creditorName: user.firstName, amount: amount})
           }
         }
       }
@@ -74,7 +76,6 @@ class CGroup{
 
   toString(){
     let res = "Name  : " + this.name + "\n";
-    console.log(this.users)
     Object.keys(this.users).forEach(key => {
       const user: User = this.users[Number(key)];
       res += user.name + " : " + String(user.balance) + "\n";
