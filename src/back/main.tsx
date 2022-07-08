@@ -1,10 +1,10 @@
 import User from "./User";
-import Group from "./Group";
+import CGroup from "./Group.class";
 
 const db = {};
 
 function groupTest ()  {
-  const group = new Group("OM");
+  const group = new CGroup("OM");
 
   const user1 = new User(1, "Messi", "Lionel");
   const user2 = new User(2, "Suarez", "Luis");

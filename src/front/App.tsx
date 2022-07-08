@@ -4,13 +4,14 @@ import './App.css';
 
 import groupTest from '../back/main';
 import TransactionList from './TransactionList';
+import Group from './Group/Group';
 
 function App() {
   const group = groupTest();
 
   return (
     <div className="App">
-      <TransactionList transactions={group.transactions}></TransactionList>
+      <Group group={group} />
     </div>
   );
 }

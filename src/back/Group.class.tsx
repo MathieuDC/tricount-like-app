@@ -12,7 +12,7 @@ interface Debt{
   amount: Number;
 }
 
-class Group{
+class CGroup{
   users: Users;
   transactions: Transactions;
   name: String;
@@ -87,4 +87,4 @@ class Group{
   }
 }
 
-export default Group;
+export default CGroup;
