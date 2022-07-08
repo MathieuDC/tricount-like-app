@@ -1,0 +1,14 @@
+.balance-section{
+  width: 80vw;
+  margin: auto;
+}
+
+.balance-item{
+  width: 100%;
+  border-bottom: solid 1px black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  font-size: 1.2em;
+}
