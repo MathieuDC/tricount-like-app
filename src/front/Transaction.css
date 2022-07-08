@@ -1,5 +1,34 @@
-.Transacation{
+.transaction-list{
+  width: 80vw;
+  margin: auto;
+}
+
+.transaction-item{
   display: flex;
-  flex-direction: column;
-  
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 300px;
+  margin: 5px 0;
+  padding: 4px;
+  border: solid 1px black;
+  border-radius: 4px;
+}
+
+.transaction-item__name, .transaction-item__amount{
+  width: 50%;
+  font-size: 1.3em;
+}
+
+.transaction-item__name{
+  text-align: left;
+}
+
+.transaction-item__amount{
+  text-align: right;
+}
+
+.transaction-item__giver-name{
+  width: 100%;
+  text-align: left;
+  font-size: 0.8em;
 }
