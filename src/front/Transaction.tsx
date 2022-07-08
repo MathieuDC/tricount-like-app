@@ -9,11 +9,11 @@ interface TransactionProps {
  
 const Transaction = ({transaction}: TransactionProps) => {
   return ( 
-    <div className="transaction-item">
+    <li key={transaction.id} className="transaction-item">
       <div className="transaction-item__name">{transaction.name}</div>
       <div className="transaction-item__amount">{transaction.amount}</div>
       <div className="transaction-item__giver-name">{transaction.giver.name}</div>
-    </div>
+    </li>
   );
 }
  
