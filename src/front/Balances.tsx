@@ -9,10 +9,10 @@ interface BalancesProps {
  
 const Balances = ({group}: BalancesProps) => {
   const balances = Object.values(group.users).map((user) => <div className="balance-item"><span>{user.name}</span> <span>{user.balance > 0 ? "+" + user.balance : user.balance}</span></div>)
-  return ( <>
+  return ( <section className="balance-section">
     {balances}
     <DebtList debts={group.debts} />
-  </> );
+    </section>);
 }
  
 export default Balances;

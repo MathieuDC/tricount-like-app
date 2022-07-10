@@ -1,3 +1,10 @@
+.group-section{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .group-title{
   text-align: left;
   margin: 10px;

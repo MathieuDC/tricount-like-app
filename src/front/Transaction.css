@@ -1,6 +1,5 @@
-.transaction-list{
-  width: 80vw;
-  margin: auto;
+.transaction-section{
+  width: 300px;
 }
 
 .transaction-item{

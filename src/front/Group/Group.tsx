@@ -11,11 +11,10 @@ interface GroupProps {
  
 const Group = ({group}: GroupProps) => {
   return (
-    <section className="balance-section">
-      <h2 className="group-title">{group.name}</h2>
-      <TransactionList transactions={group.transactions}></TransactionList>
+    <div className="group-section">
+      <TransactionList transactions={group.transactions} groupName={group.name}></TransactionList>
       <Balances group={group} />
-    </section>
+    </div>
   );
 }
  
