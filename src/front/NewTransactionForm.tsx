@@ -6,9 +6,11 @@ interface NewTransactionFormProps {
 const NewTransactionForm = () => {
   return ( <div className="new-transaction-form">
     <label>Titre</label>
-    <input type="text"></input>
+    <input type="text" placeholder="Titre"></input>
     <label>Montant</label>
-    <input type="text"></input>
+    <input type="text" placeholder="Montant"></input>
+    <button onClick={() => {}}>Valider</button>
+    <select></select>
   </div> );
 }
  
