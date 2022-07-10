@@ -1,8 +1,11 @@
 
+import { useState } from "react";
 import CGroup from "../../back/Group.class";
 import AddButton from "../AddButton";
 import Balances from "../Balances";
 import TransactionList from "../TransactionList";
+
+import groupTest from '../../back/main';
 
 import "./Group.css"
 
@@ -15,7 +18,9 @@ const handleAddTransaction = (e: any) => {
   console.log("oui");
 }
  
-const Group = ({group}: GroupProps) => {
+const Group = () => {
+  const [group, setGroup] = useState(groupTest())
+
   return (
     <div className="group-section">
       <TransactionList transactions={group.transactions} groupName={group.name}></TransactionList>
