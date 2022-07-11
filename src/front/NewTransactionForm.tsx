@@ -2,6 +2,8 @@ import React from 'react';
 import User from '../back/User';
 import UserSelect from './UserSelect';
 
+import './NewTransactionForm.css';
+
 interface NewTransactionFormProps {
   users: User[];
 }

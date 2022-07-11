@@ -1,0 +1,12 @@
+.new-transaction-form{
+  padding: 15px;
+  border: solid 1px black;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.new-transaction-form > *{
+  margin-bottom: 5px;
+}
