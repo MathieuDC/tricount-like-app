@@ -1,3 +1,4 @@
+import React from 'react';
 import User from "../back/User";
 
 interface UserSelectProps {
@@ -5,8 +6,8 @@ interface UserSelectProps {
 }
  
 const UserSelect = ({users}: UserSelectProps) => {
-  return (<select>
-    {users.map((user) => <option value={user.id}>`${user.firstName}`</option> )}
+  return (<select className='user-select'>
+    {users.map((user) => <option value={user.id}>{user.firstName}</option> )}
   </select>);
 }
  

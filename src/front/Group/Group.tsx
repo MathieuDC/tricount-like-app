@@ -28,7 +28,7 @@ const Group = () => {
       <TransactionList transactions={group.transactions} groupName={group.name}></TransactionList>
       <Balances group={group} />
       <AddButton onChange={handleAddTransaction}/>
-      <NewTransactionForm />
+      <NewTransactionForm users={Object.values(group.users)}/>
     </div>
   );
 }
