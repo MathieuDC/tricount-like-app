@@ -1,6 +1,8 @@
 import React from 'react';
 import User from "../back/User";
 
+import './UserSelect.css';
+
 interface UserSelectProps {
   users: User[];
 }
