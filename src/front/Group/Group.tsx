@@ -10,6 +10,7 @@ import groupTest from '../../back/main';
 
 import "./Group.css"
 import NewTransactionForm from "../NewTransactionForm";
+import NewTransaction from '../NewTransaction';
 
 interface GroupProps {
   group: CGroup
@@ -27,8 +28,7 @@ const Group = () => {
     <div className="group-section">
       <TransactionList transactions={group.transactions} groupName={group.name}></TransactionList>
       <Balances group={group} />
-      <AddButton onChange={handleAddTransaction}/>
-      <NewTransactionForm users={Object.values(group.users)}/>
+      <NewTransaction users={Object.values(group.users)} onAddTransaction={handleAddTransaction} />
     </div>
   );
 }
