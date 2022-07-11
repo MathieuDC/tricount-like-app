@@ -1,3 +1,5 @@
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid'; 
 import { IDebt } from "../back/Group.class";
 
 interface DebtListProps {
@@ -5,7 +7,7 @@ interface DebtListProps {
 }
  
 const DebtList = ({debts} : DebtListProps) => {
-  const debtsComponent = debts.map((debt) => <li key={Number(debt.creditorName)}><>{debt.debterName}</> doit <>{debt.amount}</> à <>{debt.creditorName}</></li>)
+  const debtsComponent = debts.map((debt) => <li key={uuidv4()}><>{debt.debterName}</> doit <>{debt.amount}</> à <>{debt.creditorName}</></li>)
   return ( <ul>
     {debtsComponent}
   </ul> );

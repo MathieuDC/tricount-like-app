@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { useState } from "react";
 import CGroup from "../../back/Group.class";
 import AddButton from "../AddButton";

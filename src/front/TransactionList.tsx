@@ -1,3 +1,4 @@
+import React from 'react';
 import { TransactionI, Transactions } from "../back/Transaction.class";
 import Transaction from "./Transaction";
 
