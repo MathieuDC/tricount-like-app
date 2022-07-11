@@ -13,8 +13,8 @@ const NewTransactionForm = ({users}: NewTransactionFormProps) => {
     <input type="text" placeholder="Titre"></input>
     <label>Montant</label>
     <input type="text" placeholder="Montant"></input>
-    <button onClick={() => {}}>Valider</button>
     <UserSelect users={users} />
+    <button onClick={() => {}}>Valider</button>
   </div> );
 }
  
