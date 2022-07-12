@@ -11,12 +11,13 @@ interface NewTransactionFormProps {
   onChangeAmount: any,
   onChangeReceiver: any,
   onChangeGiver: any,
-  onValidate: any
+  onValidate: any,
+  onClose: any
 
 }
  
 //TODO : Changer pour une balise form quand on pourra faire des requête en back
-const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, onChangeReceiver, onChangeGiver, onValidate}: NewTransactionFormProps) => {
+const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, onChangeReceiver, onChangeGiver, onValidate, onClose}: NewTransactionFormProps) => {
 
   const handleChangeName = (e: any) => {
     onChangeName(e.target.value);
@@ -38,7 +39,7 @@ const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, on
     return (
       <div className="full-screen-display">
         <div className="new-transaction-form">
-          <button className='closing-button'>X</button>
+          <button className='closing-button' onClick={onClose}>X</button>
           <label>Titre</label>
           <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
           <label>Montant</label>

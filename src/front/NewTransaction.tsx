@@ -54,6 +54,7 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
       onChangeReceiver={handleFormChangeReceiver}
       onChangeGiver={handleFormChangeGiver}
       onValidate={handleValidate}
+      onClose={toggleIsFormDisplayed}
     />
   </> );
 }
