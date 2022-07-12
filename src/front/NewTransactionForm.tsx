@@ -35,17 +35,21 @@ const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, on
   }
   
   if(isDisplayed){
-    return (<div className="new-transaction-form">
-      <label>Titre</label>
-      <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
-      <label>Montant</label>
-      <input type="text" placeholder="Montant" onChange={handleChangeAmount}></input>
-      <label>Qui donne ?</label>
-      <UserSelect users={users} onChange={handleChangeReceiver} />
-      <label>Qui reçoit ?</label>
-      <UserSelect users={users} onChange={handleChangeGiver} />
-      <button onClick={onValidate}>Valider</button>
-    </div>);
+    return (
+      <div className="full-screen-display">
+        <div className="new-transaction-form">
+          <label>Titre</label>
+          <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
+          <label>Montant</label>
+          <input type="text" placeholder="Montant" onChange={handleChangeAmount}></input>
+          <label>Qui donne ?</label>
+          <UserSelect users={users} onChange={handleChangeReceiver} />
+          <label>Qui reçoit ?</label>
+          <UserSelect users={users} onChange={handleChangeGiver} />
+          <button onClick={onValidate}>Valider</button>
+        </div>
+      </div>
+    );
   }
 
   return null;

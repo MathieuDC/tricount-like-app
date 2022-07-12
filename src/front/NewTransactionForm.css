@@ -5,8 +5,18 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 280px;
+  background-color: white;
 }
 
 .new-transaction-form > *{
   margin-bottom: 5px;
+}
+
+.new-transaction-form > input{
+  width: 100%;
+}
+
+.new-transaction-form > button{
+  width: 35%;
 }
