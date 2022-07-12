@@ -1,7 +1,7 @@
 
 import { type } from '@testing-library/user-event/dist/type';
 import { TransactionI, Transactions } from './Transaction.class';
-import User from './User'
+import User from './User.class'
 
 interface Users{
   [index: number]: User;

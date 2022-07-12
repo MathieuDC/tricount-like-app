@@ -1,5 +1,5 @@
 import React from 'react';
-import User from "../back/User";
+import User from "../back/User.class";
 
 import './UserSelect.css';
 
