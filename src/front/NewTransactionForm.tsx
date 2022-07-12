@@ -7,6 +7,7 @@ import './NewTransactionForm.css';
 interface NewTransactionFormProps {
   users: User[],
   isDisplayed: boolean,
+  onChangeName: any,
   onChangeAmount: any,
   onChangeReceiver: any,
   onChangeGiver: any,
@@ -15,7 +16,11 @@ interface NewTransactionFormProps {
 }
  
 //TODO : Changer pour une balise form quand on pourra faire des requête en back
-const NewTransactionForm = ({users, isDisplayed, onChangeAmount, onChangeReceiver, onChangeGiver, onValidate}: NewTransactionFormProps) => {
+const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, onChangeReceiver, onChangeGiver, onValidate}: NewTransactionFormProps) => {
+
+  const handleChangeName = (e: any) => {
+    onChangeName(e.target.value);
+  }
 
   const handleChangeAmount = (e: any) => {
     onChangeAmount(e.target.value);
@@ -32,9 +37,9 @@ const NewTransactionForm = ({users, isDisplayed, onChangeAmount, onChangeReceive
   if(isDisplayed){
     return (<div className="new-transaction-form">
       <label>Titre</label>
-      <input type="text" placeholder="Titre" onChange={handleChangeAmount}></input>
+      <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
       <label>Montant</label>
-      <input type="text" placeholder="Montant"></input>
+      <input type="text" placeholder="Montant" onChange={handleChangeAmount}></input>
       <label>Qui donne ?</label>
       <UserSelect users={users} onChange={handleChangeReceiver} />
       <label>Qui reçoit ?</label>

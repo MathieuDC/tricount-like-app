@@ -11,13 +11,18 @@ interface NewTransactionProps {
  
 const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
   const [isFormDisplayed, setIsFormDisplayed] = useState(false);
+  const [amount, setAmount] = useState(null);
+  const [name, setName] = useState(null);
   const [selectedReceiverId, setSelectedReceiverId] = useState(null);
   const [selectedGiverId, setSelectedGiverId] = useState(null);
-  const [amount, setAmount] = useState(null);
 
   const toggleIsFormDisplayed: FormEventHandler = (e) => {
     e.preventDefault();
     setIsFormDisplayed(!isFormDisplayed);
+  }
+
+  const handleFormChangeName = (name: any) => {
+    setName(name);
   }
 
   const handleFormChangeAmount = (amount: any) => {
@@ -33,6 +38,8 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
   }
 
   const handleValidate = () => {
+    console.log('Name: ' + name);
+    console.log('Amount: ' + amount);
     console.log('Give: ' + selectedGiverId);
     console.log('Receive: ' + selectedReceiverId);
   }
@@ -42,6 +49,7 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
     <NewTransactionForm 
       users={users}
       isDisplayed={isFormDisplayed}
+      onChangeName={handleFormChangeName}
       onChangeAmount={handleFormChangeAmount}
       onChangeReceiver={handleFormChangeReceiver}
       onChangeGiver={handleFormChangeGiver}
