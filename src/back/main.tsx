@@ -7,8 +7,8 @@ const db = {};
 function groupTest ()  {
   const group = new CGroup("OM");
 
-  const user1 = new User(1, "Messi", "Lionel");
-  const user2 = new User(2, "Suarez", "Luis");
+  const user1 = new User(1, "Guendouzi", "Mateo");
+  const user2 = new User(2, "Da Silva", "Gerson");
   const user3 = new User(3, "Payet", "Dimitry");
 
   group.add(user1);
