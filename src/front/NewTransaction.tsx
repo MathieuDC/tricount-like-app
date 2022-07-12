@@ -13,10 +13,15 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
   const [isFormDisplayed, setIsFormDisplayed] = useState(false);
   const [selectedReceiverId, setSelectedReceiverId] = useState(null);
   const [selectedGiverId, setSelectedGiverId] = useState(null);
+  const [amount, setAmount] = useState(null);
 
   const toggleIsFormDisplayed: FormEventHandler = (e) => {
     e.preventDefault();
     setIsFormDisplayed(!isFormDisplayed);
+  }
+
+  const handleFormChangeAmount = (amount: any) => {
+    setAmount(amount);
   }
 
   const handleFormChangeReceiver = (selectedReceiverId: any) => {
@@ -37,6 +42,7 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
     <NewTransactionForm 
       users={users}
       isDisplayed={isFormDisplayed}
+      onChangeAmount={handleFormChangeAmount}
       onChangeReceiver={handleFormChangeReceiver}
       onChangeGiver={handleFormChangeGiver}
       onValidate={handleValidate}

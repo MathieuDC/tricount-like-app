@@ -7,14 +7,19 @@ import './NewTransactionForm.css';
 interface NewTransactionFormProps {
   users: User[],
   isDisplayed: boolean,
-  onChangeReceiver: Function,
+  onChangeAmount: any,
+  onChangeReceiver: any,
   onChangeGiver: any,
   onValidate: any
 
 }
  
 //TODO : Changer pour une balise form quand on pourra faire des requête en back
-const NewTransactionForm = ({users, isDisplayed, onChangeReceiver, onChangeGiver, onValidate}: NewTransactionFormProps) => {
+const NewTransactionForm = ({users, isDisplayed, onChangeAmount, onChangeReceiver, onChangeGiver, onValidate}: NewTransactionFormProps) => {
+
+  const handleChangeAmount = (e: any) => {
+    onChangeAmount(e.target.value);
+  }
 
   const handleChangeReceiver = (e: any) => {
     onChangeGiver(e.currentTarget.value);
@@ -27,7 +32,7 @@ const NewTransactionForm = ({users, isDisplayed, onChangeReceiver, onChangeGiver
   if(isDisplayed){
     return (<div className="new-transaction-form">
       <label>Titre</label>
-      <input type="text" placeholder="Titre"></input>
+      <input type="text" placeholder="Titre" onChange={handleChangeAmount}></input>
       <label>Montant</label>
       <input type="text" placeholder="Montant"></input>
       <label>Qui donne ?</label>
