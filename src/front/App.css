@@ -134,7 +134,10 @@ button{
   background-color: #008db4;
   color: white;
 }
-
+/*
+  Apply this class to a div that contains the element you want 
+  to display in full screen
+*/
 .full-screen-display{
   position: absolute;
   height: 100vh;
