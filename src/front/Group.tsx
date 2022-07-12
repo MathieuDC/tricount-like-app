@@ -1,16 +1,16 @@
 
 import React from 'react';
 import { useState } from "react";
-import CGroup from "../../back/Group.class";
-import AddButton from "../AddButton";
-import Balances from "../Balances";
-import TransactionList from "../TransactionList";
+import CGroup from "../back/Group.class";
+import AddButton from "./AddButton";
+import Balances from "./Balances";
+import TransactionList from "./TransactionList";
 
-import groupTest from '../../back/main';
+import groupTest from '../back/main';
 
 import "./Group.css"
-import NewTransactionForm from "../NewTransactionForm";
-import NewTransaction from '../NewTransaction';
+import NewTransactionForm from "./NewTransactionForm";
+import NewTransaction from './NewTransaction';
 
 interface GroupProps {
   group: CGroup

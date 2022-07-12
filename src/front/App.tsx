@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-import Group from './Group/Group';
+import Group from './Group';
 
 function App() {
   return (
