@@ -134,3 +134,16 @@ button{
   background-color: #008db4;
   color: white;
 }
+
+.full-screen-display{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: rgba(116, 116, 116, 0.416);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
