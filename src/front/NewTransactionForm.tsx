@@ -38,6 +38,7 @@ const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, on
     return (
       <div className="full-screen-display">
         <div className="new-transaction-form">
+          <button className='closing-button'>X</button>
           <label>Titre</label>
           <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
           <label>Montant</label>
