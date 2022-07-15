@@ -33,6 +33,7 @@ class CGroup{
     this.transactions[transaction.id] = transaction;
     this.users[transaction.giver.id].balance += transaction.amount;
     this.users[transaction.receiver.id].balance -= transaction.amount;
+    this.computeDebt();
   }
 
   getUserWithMinBalance(users: Users){
@@ -49,6 +50,7 @@ class CGroup{
   }
 
   computeDebt(){
+    this.debts = [];
     //On crée une copie profonde
     const users: Users = JSON.parse(JSON.stringify(this.users));
 
