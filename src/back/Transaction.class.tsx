@@ -3,7 +3,7 @@ import User from "./User.class";
 
 interface TransactionI{
   id: number;
-  name: string;
+  name: String;
   giver: User;
   receiver: User;
   amount: number;
