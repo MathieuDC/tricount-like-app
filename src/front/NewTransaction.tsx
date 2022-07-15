@@ -5,7 +5,7 @@ import AddButton from "./AddButton";
 import NewTransactionForm from "./NewTransactionForm";
 
 interface NewTransactionProps {
-  onAddTransaction: FormEventHandler,
+  onAddTransaction: any,
   users: User[]
 }
  
@@ -42,6 +42,12 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
     console.log('Amount: ' + amount);
     console.log('Give: ' + selectedGiverId);
     console.log('Receive: ' + selectedReceiverId);
+    if(!name || amount == 0 || !selectedGiverId || !selectedReceiverId){
+      console.log("Le formulaire n'est pas correctement remplie") //TODO: Handle error
+      return;
+    }
+    onAddTransaction(name, amount, selectedGiverId, selectedReceiverId);
+    setIsFormDisplayed(!isFormDisplayed);
   }
 
   return ( <>
