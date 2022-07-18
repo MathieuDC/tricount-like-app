@@ -1,18 +1,19 @@
 import React from 'react';
-import CGroup from "./../back/Group.class"
+import CGroup, { IDebt, Users } from "./../back/Group.class"
 
 import "./Balances.css"
 import DebtList from "./DebtList"
 
 interface BalancesProps {
-  group: CGroup
+  users: Users,
+  debts: IDebt[]
 }
  
-const Balances = ({group}: BalancesProps) => {
-  const balances = Object.values(group.users).map((user) => <div key={user.id} className="balance-item"><span>{user.name}</span> <span>{user.balance > 0 ? "+" + user.balance : user.balance}</span></div>)
+const Balances = ({users, debts}: BalancesProps) => {
+  const balances = Object.values(users).map((user) => <div key={user.id} className="balance-item"><span>{user.name}</span> <span>{user.balance > 0 ? "+" + user.balance : user.balance}</span></div>)
   return ( <section className="balance-section">
     {balances}
-    <DebtList debts={group.debts} />
+    <DebtList debts={debts} />
     </section>);
 }
  
