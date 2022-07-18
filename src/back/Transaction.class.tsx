@@ -2,7 +2,7 @@ import TransactionList from "../front/TransactionList";
 import User from "./User.class";
 
 interface TransactionI{
-  id: number;
+  id?: number;
   name: String;
   giver: User;
   receiver: User;
