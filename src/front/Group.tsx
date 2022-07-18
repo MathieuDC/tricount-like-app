@@ -25,6 +25,7 @@ const Group = () => {
   const [transactions, setTransactions] = useState(groupBackEnd.transactions);
   const [users, setUsers] = useState(groupBackEnd.users);
   const [debts, setDebts] = useState(groupBackEnd.debts);
+  const [isBalancesDisplayed, setIsBalancesDisplayed] = useState(false);
   
   const updateState = () => {
     setTransactions({...groupBackEnd.transactions})
@@ -37,12 +38,25 @@ const Group = () => {
     updateState();
   }
 
+  const handleDisplayBalances = (e: any) => {
+    setIsBalancesDisplayed(true);
+  }
+
+  const handleDisplayTransactions = (e: any) => {
+    setIsBalancesDisplayed(false);
+  }
+
   return (
     <>
-      <h2 className="group-title">{groupName}</h2>
-      <div className="group-section">
-        <TransactionList transactions={transactions} groupName={groupName}></TransactionList>
-        <Balances users={users} debts={debts} />
+      <h2 className='group-title'>{groupName}</h2>
+      <div className='group-section'>
+        <button id='group-button-transactions' className={isBalancesDisplayed ? '' : 'selected'} onClick={handleDisplayTransactions}>DEPENSES</button>
+        <button id='group-button-balances' className={isBalancesDisplayed ? 'selected' : ''} onClick={handleDisplayBalances}>EQUILIBRE</button>
+        {isBalancesDisplayed ? 
+          <Balances users={users} debts={debts} /> :
+          <TransactionList transactions={transactions} groupName={groupName}></TransactionList>
+        }
+        
         <NewTransaction users={Object.values(users)} onAddTransaction={handleAddTransaction} />
       </div>
     </>
