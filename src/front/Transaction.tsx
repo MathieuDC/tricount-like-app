@@ -13,7 +13,7 @@ const Transaction = ({transaction}: TransactionProps) => {
     <li key={transaction.id} className="transaction-item">
       <div className="transaction-item__name">{transaction.name}</div>
       <div className="transaction-item__amount">{transaction.amount}</div>
-      <div className="transaction-item__giver-name">{transaction.giver.name}</div>
+      <div className="transaction-item__giver-name">{transaction.giver.firstName}</div>
     </li>
   );
 }
