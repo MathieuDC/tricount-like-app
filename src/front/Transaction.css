@@ -18,16 +18,15 @@
   font-size: 1.3em;
 }
 
-.transaction-item__name{
-  text-align: left;
-}
-
-.transaction-item__amount{
-  text-align: right;
-}
-
-.transaction-item__giver-name{
-  width: 100%;
-  text-align: left;
+.transaction-item__giver-name, .transaction-item__date{
+  width: 50%;
   font-size: 0.8em;
+}
+
+.transaction-item__name, .transaction-item__giver-name{
+  text-align: left;
+}
+
+.transaction-item__amount, .transaction-item__date{
+  text-align: right;
 }
