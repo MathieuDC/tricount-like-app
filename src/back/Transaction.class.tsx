@@ -3,6 +3,7 @@ import User from "./User.class";
 
 interface TransactionI{
   id?: number;
+  date?: Date;
   name: String;
   giver: User;
   receiver: User;
