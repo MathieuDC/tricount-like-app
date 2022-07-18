@@ -9,8 +9,11 @@ interface UserSelectProps {
 }
  
 const UserSelect = ({users, onChange}: UserSelectProps) => {
+  const usersElement = users.map((user) => <option value={user.id}>{user.firstName}</option> );
+  usersElement.unshift(<option value={''}>-</option>);
+  
   return (<select className='user-select' onChange={onChange}>
-    {users.map((user) => <option value={user.id}>{user.firstName}</option> )}
+    {usersElement}
   </select>);
 }
  
