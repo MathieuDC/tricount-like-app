@@ -10,7 +10,7 @@ interface NewTransactionProps {
 }
  
 const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
-  const [isFormDisplayed, setIsFormDisplayed] = useState(true);
+  const [isFormDisplayed, setIsFormDisplayed] = useState(false);
   const [amount, setAmount] = useState(0);
   const [name, setName] = useState(null);
   const [selectedReceiverId, setSelectedReceiverId] = useState(null);
