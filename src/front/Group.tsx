@@ -38,11 +38,14 @@ const Group = () => {
   }
 
   return (
-    <div className="group-section">
-      <TransactionList transactions={transactions} groupName={groupName}></TransactionList>
-      <Balances users={users} debts={debts} />
-      <NewTransaction users={Object.values(users)} onAddTransaction={handleAddTransaction} />
-    </div>
+    <>
+      <h2 className="group-title">{groupName}</h2>
+      <div className="group-section">
+        <TransactionList transactions={transactions} groupName={groupName}></TransactionList>
+        <Balances users={users} debts={debts} />
+        <NewTransaction users={Object.values(users)} onAddTransaction={handleAddTransaction} />
+      </div>
+    </>
   );
 }
  
