@@ -3,10 +3,26 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  width: 300px;
+  margin: auto;
 }
 
 .group-title{
   text-align: left;
   margin: 10px;
   font-size: 1.8em;
+}
+
+#group-button-transactions, #group-button-balances{
+  width: 50%;
+  border-radius: 0;
+  color: #008db4;
+  background-color: #fff;
+  border: none;
+  border-bottom: 1px solid #008db4;
+}
+
+#group-button-transactions.selected, #group-button-balances.selected{
+  background-color: #008db4;
+  color: #fff;
 }
