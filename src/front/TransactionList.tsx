@@ -10,7 +10,9 @@ interface TransactionListProps {
 }
  
 export default ({transactions, groupName}: TransactionListProps) => {
-  const transactionsItem = Object.values(transactions).map((t: TransactionI) => <Transaction transaction={t}></Transaction>)
+  const transactionsItem = Object.values(transactions)
+    .sort((t1, t2) => t1.date - t2.date)
+    .map((t: TransactionI) => <Transaction transaction={t}></Transaction>);
   return (
     <section className="transaction-section">
       <h2 className="group-title">{groupName}</h2>
