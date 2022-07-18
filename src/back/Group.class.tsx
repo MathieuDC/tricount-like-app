@@ -13,6 +13,13 @@ interface IDebt{
   amount: Number;
 }
 
+interface IGroup{
+  users: Users;
+  transactions: Transactions;
+  name: String;
+  debts: IDebt[];
+}
+
 class CGroup{
   users: Users;
   transactions: Transactions;
@@ -92,5 +99,5 @@ class CGroup{
 }
 
 
-export type {IDebt};
+export type {IDebt, IGroup, Users};
 export default CGroup;

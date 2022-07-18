@@ -11,7 +11,7 @@ interface NewTransactionProps {
  
 const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
   const [isFormDisplayed, setIsFormDisplayed] = useState(true);
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState(0);
   const [name, setName] = useState(null);
   const [selectedReceiverId, setSelectedReceiverId] = useState(null);
   const [selectedGiverId, setSelectedGiverId] = useState(null);
@@ -26,7 +26,7 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
   }
 
   const handleFormChangeAmount = (amount: any) => {
-    setAmount(amount);
+    setAmount(Number(amount));
   }
 
   const handleFormChangeReceiver = (selectedReceiverId: any) => {
@@ -38,10 +38,6 @@ const NewTransaction = ({onAddTransaction, users}: NewTransactionProps) => {
   }
 
   const handleValidate = () => {
-    console.log('Name: ' + name);
-    console.log('Amount: ' + amount);
-    console.log('Give: ' + selectedGiverId);
-    console.log('Receive: ' + selectedReceiverId);
     if(!name || amount == 0 || !selectedGiverId || !selectedReceiverId){
       console.log("Le formulaire n'est pas correctement remplie") //TODO: Handle error
       return;
