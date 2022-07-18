@@ -33,7 +33,7 @@ const Group = () => {
   }
   
   const handleAddTransaction = (name: String, amount: number, giverId: number,receiverId: number) => {
-    groupBackEnd.addTransaction({id: 10,name, amount, giver: groupBackEnd.users[giverId], receiver: groupBackEnd.users[receiverId]});
+    groupBackEnd.addTransaction({name, amount, giver: groupBackEnd.users[giverId], receiver: groupBackEnd.users[receiverId]});
     updateState();
   }
 
