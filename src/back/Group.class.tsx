@@ -44,6 +44,7 @@ class CGroup{
   addTransaction(transaction: TransactionI){
     const id = Math.floor((1 + Math.random()) * 10000);
     transaction.id = id;
+    transaction.date = new Date();
     this.transactions[id] = transaction;
     this.users[transaction.giver.id].balance += transaction.amount;
     this.users[transaction.receiver.id].balance -= transaction.amount;
