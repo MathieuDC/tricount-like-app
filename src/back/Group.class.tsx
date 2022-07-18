@@ -2,6 +2,7 @@
 import { type } from '@testing-library/user-event/dist/type';
 import { TransactionI, Transactions } from './Transaction.class';
 import User from './User.class'
+import { v4 as uuidv4 } from 'uuid';
 
 interface Users{
   [index: number]: User;
@@ -36,8 +37,14 @@ class CGroup{
     this.users[user.id] = user;
   }
 
+  /**
+   * TODO 1 : Ask only users' id and amount ? 
+   * TODO 2 : Generate real id, thus changing the type in ITransaction 
+   */
   addTransaction(transaction: TransactionI){
-    this.transactions[transaction.id] = transaction;
+    const id = Math.floor((1 + Math.random()) * 10000);
+    transaction.id = id;
+    this.transactions[id] = transaction;
     this.users[transaction.giver.id].balance += transaction.amount;
     this.users[transaction.receiver.id].balance -= transaction.amount;
     this.computeDebt();
