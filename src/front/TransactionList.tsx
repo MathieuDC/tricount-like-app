@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransactionI, Transactions } from "../back/Transaction.class";
+import { TransactionI, Transactions } from "../model/Transaction.class";
 import Transaction from "./Transaction";
 
 import "./Transaction.css"

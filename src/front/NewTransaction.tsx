@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FormEventHandler } from "react";
-import User from "../back/User.class";
+import User from "../model/User.class";
 import AddButton from "./AddButton";
 import NewTransactionForm from "./NewTransactionForm";
 

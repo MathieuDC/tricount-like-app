@@ -1,5 +1,5 @@
 import React, { FormEventHandler } from 'react';
-import User from "../back/User.class";
+import User from "../model/User.class";
 
 import './UserSelect.css';
 

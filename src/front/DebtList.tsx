@@ -1,6 +1,6 @@
 import React from 'react';
 import { v4 as uuidv4 } from 'uuid'; 
-import { IDebt } from "../back/Group.class";
+import { IDebt } from "../model/Group.class";
 
 interface DebtListProps {
   debts: IDebt[];
