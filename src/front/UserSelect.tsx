@@ -9,8 +9,8 @@ interface UserSelectProps {
 }
  
 const UserSelect = ({users, onChange}: UserSelectProps) => {
-  const usersElement = users.map((user) => <option value={user.id}>{user.firstName}</option> );
-  usersElement.unshift(<option value={''}>-</option>);
+  const usersElement = users.map((user) => <option value={user.id} key={user.id}>{user.firstName}</option> );
+  usersElement.unshift(<option value={''} key='0'>-</option>);
   
   return (<select className='user-select' onChange={onChange}>
     {usersElement}

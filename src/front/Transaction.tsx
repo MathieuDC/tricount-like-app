@@ -14,8 +14,11 @@ const Transaction = ({transaction}: TransactionProps) => {
     return num.toString().padStart(2, '0');
   }
 
+  //TODO Mettre ça ailleur
+  if(typeof(transaction.date) === 'string') transaction.date = new Date(transaction.date)
+
   return ( 
-    <li key={transaction.id} className="transaction-item">
+    <li className="transaction-item">
       <div className="transaction-item__name">{transaction.name}</div>
       <div className="transaction-item__amount">{transaction.amount}</div>
       <div className="transaction-item__giver-name">{transaction.giver.firstName}</div>
