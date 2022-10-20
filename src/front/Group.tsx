@@ -1,41 +1,33 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from "react";
-import CGroup from "../model/Group.class";
-import AddButton from "./AddButton";
+import { IDebt, IGroup } from "../model/Group.class";
 import Balances from "./Balances";
 import TransactionList from "./TransactionList";
 
-import groupTest from '../model/main';
-
 import "./Group.css"
-import NewTransactionForm from "./NewTransactionForm";
 import NewTransaction from './NewTransaction';
-import { TransactionI } from '../model/Transaction.class';
 
-interface GroupProps {
-  group: CGroup
-}
-
-const groupBackEnd = groupTest();
 
 const Group = () => {
 
-  const [groupName, setGroupName] = useState(groupBackEnd.name);
-  const [transactions, setTransactions] = useState(groupBackEnd.transactions);
-  const [users, setUsers] = useState(groupBackEnd.users);
-  const [debts, setDebts] = useState(groupBackEnd.debts);
+  const [groupName, setGroupName] = useState('');
+  const [transactions, setTransactions] = useState({});
+  const [users, setUsers] = useState({});
+  const [debts, setDebts] = useState([] as IDebt[]);
   const [isBalancesDisplayed, setIsBalancesDisplayed] = useState(false);
+  const [isDataFetched, setIsDataFetched] = useState(false);
+
   
-  const updateState = () => {
-    setTransactions({...groupBackEnd.transactions})
-    setUsers({...groupBackEnd.users})
-    setDebts([...groupBackEnd.debts])
+  const updateState = (group: IGroup) => {
+    setTransactions({...group.transactions})
+    setUsers({...group.users})
+    setDebts([...group.debts])
   }
   
   const handleAddTransaction = (name: String, amount: number, giverId: number,receiverId: number) => {
-    groupBackEnd.addTransaction({name, amount, giver: groupBackEnd.users[giverId], receiver: groupBackEnd.users[receiverId]});
-    updateState();
+    //groupBackEnd.addTransaction({name, amount, giver: groupBackEnd.users[giverId], receiver: groupBackEnd.users[receiverId]});
+    //updateState();
   }
 
   const handleDisplayBalances = (e: any) => {
@@ -46,21 +38,58 @@ const Group = () => {
     setIsBalancesDisplayed(false);
   }
 
-  return (
-    <>
-      <h2 className='group-title'>{groupName}</h2>
-      <div className='group-section'>
-        <button id='group-button-transactions' className={isBalancesDisplayed ? '' : 'selected'} onClick={handleDisplayTransactions}>DEPENSES</button>
-        <button id='group-button-balances' className={isBalancesDisplayed ? 'selected' : ''} onClick={handleDisplayBalances}>EQUILIBRE</button>
-        {isBalancesDisplayed ? 
-          <Balances users={users} debts={debts} /> :
-          <TransactionList transactions={transactions} groupName={groupName}></TransactionList>
+  type JSONResponse = {
+    data?: {
+      group: IGroup
+    }
+    errors?: Array<{message: string}>
+  }
+
+  const fecthGroup = async () => {
+    try {
+      const response = await fetch("/groups");
+      const group = await response.json()
+      if(group){
+        return {
+          transactions: group.transactions,
+          users: group.users,
+          name: group.name,
+          debts: group.debts
         }
-        
-        <NewTransaction users={Object.values(users)} onAddTransaction={handleAddTransaction} />
-      </div>
-    </>
-  );
+       }
+    } catch (error) {
+      throw error;
+    }
+  }
+  
+
+  useEffect(() => {
+    fecthGroup().then(group => {
+      if(group){
+        updateState(group);
+        setIsDataFetched(true);
+      } else throw new Error("Didn't receive any group")
+    })
+    .catch(console.log)
+  }, []);
+
+  return (
+      isDataFetched ? (
+        <>
+          <h2 className='group-title'>{groupName}</h2>
+          <div className='group-section'>
+            <button id='group-button-transactions' className={isBalancesDisplayed ? '' : 'selected'} onClick={handleDisplayTransactions}>DEPENSES</button>
+            <button id='group-button-balances' className={isBalancesDisplayed ? 'selected' : ''} onClick={handleDisplayBalances}>EQUILIBRE</button>
+            {isBalancesDisplayed ? 
+              <Balances users={users} debts={debts} /> :
+              <TransactionList transactions={transactions} groupName={groupName}></TransactionList>
+            }
+            
+            <NewTransaction users={Object.values(users)} onAddTransaction={handleAddTransaction} />
+          </div>
+        </>)
+        : <div>Fecthing ...</div>
+      );
 }
  
 export default Group;
