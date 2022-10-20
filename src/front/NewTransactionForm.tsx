@@ -35,26 +35,25 @@ const NewTransactionForm = ({users, isDisplayed,onChangeName, onChangeAmount, on
     onChangeReceiver(e.currentTarget.value);
   }
   
-  if(isDisplayed){
-    return (
-      <div className="full-screen-display">
-        <div className="new-transaction-form">
-          <button className='closing-button' onClick={onClose}>X</button>
-          <label>Titre</label>
-          <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
-          <label>Montant</label>
-          <input type="text" placeholder="Montant" onChange={handleChangeAmount}></input>
-          <label>Qui donne ?</label>
-          <UserSelect users={users} onChange={handleChangeReceiver} />
-          <label>Qui reçoit ?</label>
-          <UserSelect users={users} onChange={handleChangeGiver} />
-          <button onClick={onValidate}>Valider</button>
-        </div>
+  if(!isDisplayed) return null;
+  
+  return (
+    <div className="full-screen-display">
+      <div className="new-transaction-form">
+        <button className='closing-button' onClick={onClose}>X</button>
+        <label>Titre</label>
+        <input type="text" placeholder="Titre" onChange={handleChangeName}></input>
+        <label>Montant</label>
+        <input type="text" placeholder="Montant" onChange={handleChangeAmount}></input>
+        <label>Qui donne ?</label>
+        <UserSelect users={users} onChange={handleChangeReceiver} />
+        <label>Qui reçoit ?</label>
+        <UserSelect users={users} onChange={handleChangeGiver} />
+        <button onClick={onValidate}>Valider</button>
       </div>
-    );
-  }
+    </div>
+  );
 
-  return null;
 }
  
 export default NewTransactionForm;
