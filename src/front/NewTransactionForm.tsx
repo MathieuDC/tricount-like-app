@@ -1,5 +1,5 @@
 import React, { FormEventHandler } from 'react';
-import User from '../model/User.class';
+import User from '../../../back/src/models/User';
 import UserSelect from './UserSelect';
 
 import './NewTransactionForm.css';

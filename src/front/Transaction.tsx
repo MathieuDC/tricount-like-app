@@ -1,6 +1,6 @@
 import React from 'react';
 import { FunctionComponent } from "react";
-import { TransactionI } from "../model/Transaction.class";
+import { TransactionI } from "../../../back/src/models/Transaction";
 
 import "./Transaction.css";
 

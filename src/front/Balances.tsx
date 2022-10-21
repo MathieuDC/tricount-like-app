@@ -1,5 +1,5 @@
 import React from 'react';
-import CGroup, { IDebt, Users } from "../model/Group.class"
+import CGroup, { IDebt, Users } from "../../../back/src/models/Group"
 
 import "./Balances.css"
 import DebtList from "./DebtList"
